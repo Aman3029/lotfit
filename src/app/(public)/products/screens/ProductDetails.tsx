@@ -57,14 +57,12 @@ const ProductDetails = ({ product }: Props) => {
   const item = generateCartItem(product, selectedVariation);
   function addToCart() {
     if (!isSelected) return;
-    // to show btn feedback while product carting
     setAddToCartLoader(true);
     setTimeout(() => {
       setAddToCartLoader(false);
     }, 1500);
     const item = generateCartItem(product, selectedVariation);
     addItemToCart(item, selectedQuantity);
-    // @ts-ignore
     toast.success("Product added to cart");
   }
   return (
