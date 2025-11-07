@@ -28,7 +28,6 @@ const SingleProductPage = ({ productSlug }: Props) => {
       <section className="  h-12 py-10  bg-gray-100 dark:bg-gray-900 flex justify-center items-center ">
         <Breadcrumb />
       </section>
-
       <div className="flex flex-col space-y-5 xl:flex-row  xl:space-x-6 container py-8">
         <div className="w-full xl:w-[75%] overflow-hidden ">
           <ProductDetails {...{ product: data as IProduct }} />
@@ -42,8 +41,7 @@ const SingleProductPage = ({ productSlug }: Props) => {
                   alt={data?.shop.name as string}
                   width={80}
                   height={80}
-                  className="rounded-full "
-                />
+                  className="rounded-full "/>
               </div>
               <div>
                 <h1 className="text-primary text-lg font-semibold">
