@@ -17,9 +17,7 @@ type Props = {
 };
 
 const SingleProductPage = ({ productSlug }: Props) => {
-
   const { data, isLoading } = useProductQuery(productSlug);
-
   const [productState, setProductState] = useState<IProduct | null>(null);
 
   const productUrl = `${process.env.NEXT_PUBLIC_APP_URL}${ROUTES.PRODUCT}/${productSlug}`;
@@ -50,22 +48,20 @@ const SingleProductPage = ({ productSlug }: Props) => {
 
   return (
     <div className="py-5">
-      {/* Breadcrumb Section */}
       <section className="h-12 py-10 bg-gray-100 dark:bg-gray-900 flex justify-center items-center">
         <Breadcrumb />
       </section>
 
-      {/* Product Details and Sidebar */}
       <div className="flex flex-col space-y-5 xl:flex-row xl:space-x-6 container py-8">
-        {/* Product Main Details */}
+        {/* Product main details */}
         <div className="w-full xl:w-[75%] overflow-hidden">
           <ProductDetails product={productState} />
         </div>
 
-        {/* Sidebar with Shop Info */}
+        {/* Sidebar with shop info */}
         <div className="w-full xl:w-[25%]">
           <div className="flex flex-col space-y-5 bg-gray-100 dark:bg-background py-4 sm:px-4 overflow-hidden">
-            {/* Shop Card */}
+            {/* Shop Info */}
             <div className="bg-white dark:bg-gray-800 py-4 px-4 w-full flex gap-4 items-center">
               <div className="max-w-[80px] w-full">
                 {shop?.logo?.img_url ? (
@@ -90,14 +86,13 @@ const SingleProductPage = ({ productSlug }: Props) => {
               </div>
             </div>
 
-            {/* Shop Description */}
+            {/* Description */}
             <div className="flex flex-col space-y-3">
               {shop?.description && (
                 <p className="text-sm text-gray-400">{shop.description}</p>
               )}
               <span className="w-full border-dotted border-t-2 mt-4" />
 
-              {/* Contact Info */}
               {shop?.settings?.contact && (
                 <div className="flex items-center gap-3">
                   <span className="flex items-center gap-2">
@@ -110,7 +105,6 @@ const SingleProductPage = ({ productSlug }: Props) => {
                 </div>
               )}
 
-              {/* Website Info */}
               {shop?.settings?.website && (
                 <div className="flex items-center gap-2 sm:gap-3">
                   <span className="flex items-center gap-1 sm:gap-2">
@@ -126,7 +120,6 @@ const SingleProductPage = ({ productSlug }: Props) => {
               )}
             </div>
 
-            {/* Social Share Box */}
             <SocialShareBox
               className="transition-all duration-300"
               shareUrl={productUrl}
@@ -135,7 +128,6 @@ const SingleProductPage = ({ productSlug }: Props) => {
         </div>
       </div>
 
-      {/* Product Tabs */}
       <div className="container">
         <ProductDetailsTab product={productState} />
       </div>
