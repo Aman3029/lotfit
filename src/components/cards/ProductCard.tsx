@@ -122,17 +122,6 @@ const ProductCard = ({ product }: Props) => {
           <p className="sm:hidden">Add</p>
           <p className="hidden sm:block">Add to Cart</p>
         </Button>
-        {/* {product.price ? (
-          <div className="bg-primary p-1 absolute top-3 right-3 rounded-lg">
-            <p className="text-xs text-white">
-              {calculateDiscountPercentage({
-                originalPrice: product.price,
-                salePrice: product.sale_price,
-              })}{" "}
-              %
-            </p>
-          </div>
-        ) : null} */}
       </Card>
     </div>
   );
