@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { GlobeIcon, SmartphoneIcon } from "lucide-react";
+// import Image from "next/image";
+// import { GlobeIcon, SmartphoneIcon } from "lucide-react";
 
 import SocialShareBox from "@/components/common/shared/social-share-box";
 import Breadcrumb from "@/components/ui/breadcrumb";
@@ -44,7 +44,7 @@ const SingleProductPage = ({ productSlug }: Props) => {
     );
   }
 
-  const { shop } = productState;
+  // const { shop } = productState;
 
   return (
     <div className="py-5">
@@ -58,10 +58,15 @@ const SingleProductPage = ({ productSlug }: Props) => {
           <ProductDetails product={productState} />
         </div>
 
-        {/* Sidebar with shop info */}
+        {/* Sidebar */}
         <div className="w-full xl:w-[25%]">
           <div className="flex flex-col space-y-5 bg-gray-100 dark:bg-background py-4 sm:px-4 overflow-hidden">
-            {/* Shop Info */}
+
+            {/*
+            ======================
+            SHOP SECTION (COMMENTED OUT)
+            ======================
+
             <div className="bg-white dark:bg-gray-800 py-4 px-4 w-full flex gap-4 items-center">
               <div className="max-w-[80px] w-full">
                 {shop?.logo?.img_url ? (
@@ -86,7 +91,6 @@ const SingleProductPage = ({ productSlug }: Props) => {
               </div>
             </div>
 
-            {/* Description */}
             <div className="flex flex-col space-y-3">
               {shop?.description && (
                 <p className="text-sm text-gray-400">{shop.description}</p>
@@ -119,7 +123,9 @@ const SingleProductPage = ({ productSlug }: Props) => {
                 </div>
               )}
             </div>
+            */}
 
+            {/* Social share box remains active */}
             <SocialShareBox
               className="transition-all duration-300"
               shareUrl={productUrl}
