@@ -65,8 +65,7 @@ const ProductDetails = ({ product }: Props) => {
     addItemToCart(item, selectedQuantity);
     toast.success("Product added to cart");
   }
-  return (
-    <div className="mt-4 flex flex-col md:flex-row gap-5">
+  return (<div className="mt-4 flex flex-col md:flex-row gap-5">
       <div className="w-full md:w-1/2 product-gallery ">
         {!!product?.gallery?.length ? (
           <ThumbnailCarousel gallery={product?.gallery} isSingleProductPage />
