@@ -106,10 +106,9 @@ const ProductCard = ({ product }: Props) => {
         </div>
 
         <div className="flex items-center">
-          // Inside ProductCard.tsx (Around line 114)
-      <div className="flex -mx-0.5 ">
+        <div className="flex -mx-0.5 ">
             {[...Array(3)].map((_, idx) => (
-              <div key={idx} className="w-3.5 lg:w-4 h-3.5 lg:h-4 mx-0.5"> </div> // <-- ADDED key={idx}
+              <div key={idx} className="w-3.5 lg:w-4 h-3.5 lg:h-4 mx-0.5"> </div> 
             ))}
           </div>
           <p className="text-sm ml-3">
