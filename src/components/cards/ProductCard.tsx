@@ -115,12 +115,10 @@ const ProductCard = ({ product }: Props) => {
             {product.in_stock ? "In-Stock" : "Out of Stock"}
           </p>
         </div>
-
         <Button
           variant={"outline"}
           className="mt-4 rounded-full"
-          onClick={addToCart}
-        >
+          onClick={addToCart}>
           <p className="sm:hidden">Add</p>
           <p className="hidden sm:block">Add to Cart</p>
         </Button>
