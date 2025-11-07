@@ -32,17 +32,17 @@ const ReviewForm = () => {
     defaultValues: {
       comment: "",
       product: "",
-      shop: "",
+      rating: 0,
     },
   });
-  const onSubmit = (values: Omit<CreateReviewInput, "product" | "shop">) => {
-    // @ts-ignore
+
+  const onSubmit = (values: Omit<CreateReviewInput, "product">) => {
     createReview({
       ...values,
-      product: reviewModalState?._id as any,
-      shop: reviewModalState?.shop._id as any,
+      product: reviewModalState?._id as string,
     });
   };
+
   return (
     <div>
       <Form {...reviewForm}>
@@ -52,12 +52,11 @@ const ReviewForm = () => {
             void reviewForm.handleSubmit(onSubmit)(...args)
           }
         >
-          <div className="">
-            <FormItem className="flex flex-col w-full ">
-              <FormLabel >Rating</FormLabel>
+          <div>
+            <FormItem className="flex flex-col w-full">
+              <FormLabel>Rating</FormLabel>
               <FormControl>
                 <RateInput
-                
                   control={reviewForm.control}
                   name="rating"
                   defaultValue={0}
@@ -67,6 +66,7 @@ const ReviewForm = () => {
               </FormControl>
             </FormItem>
           </div>
+
           <FormField
             control={reviewForm.control}
             name="comment"
@@ -84,13 +84,13 @@ const ReviewForm = () => {
           <div className="flex justify-end gap-3">
             <Button
               disabled={isLoading}
-              variant={"outline"}
+              variant="outline"
               className="border border-primary px-6 rounded-lg"
               onClick={() => setReviewModalState(false, null)}
             >
-              Cencel
+              Cancel
             </Button>
-            <Button disabled={isLoading} className=" px-6 rounded-lg">
+            <Button disabled={isLoading} className="px-6 rounded-lg">
               {isLoading && (
                 <Icons.spinner
                   className="mr-2 h-4 w-4 animate-spin"
