@@ -34,7 +34,7 @@ const QuestionForm = () => {
     createQuestion({
       product: postQuestionState?._id as string,
       question: values.question,
-      // shop removed
+      shop: "" as any,
     });
   };
 
