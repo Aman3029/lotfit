@@ -104,7 +104,6 @@ const ProductCard = ({ product }: Props) => {
             )} */}
           </div>
         </div>
-
         <div className="flex items-center">
         <div className="flex -mx-0.5 ">
             {[...Array(3)].map((_, idx) => (
