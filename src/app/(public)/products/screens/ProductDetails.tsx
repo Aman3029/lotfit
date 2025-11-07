@@ -119,22 +119,20 @@ const ProductDetails = ({ product }: Props) => {
                   )}
                 </div>
 
-                <div className="flex items-center mt-2 md:px-3">
-                  <div className="flex md:-mx-0.5 ">
-                    {[...Array(5)].map((_, idx) => (
+               <div className="flex items-center mt-2 md:px-3">
+              <div className="flex md:-mx-0.5 ">
+                  {[...Array(5)].map((_, idx) => (
                       <StarIcon
-                        key={idx}
-                        color={idx < product?.ratings ? "#F3B81F" : "#DFE6ED"}
-                        className="w-3.5 lg:w-4 h-3.5 lg:h-4 mx-0.5"
+                          key={idx}
+                          color={idx < product?.ratings ? "#F3B81F" : "#DFE6ED"}
+                          className="w-3.5 lg:w-4 h-3.5 lg:h-4 mx-0.5"
                       />
-                    ))}
-                    <p className="text-[#F3B81F] ml-3 text-sm">
-                      {product?.totalReviews} Reveiws
-                    </p>
-                  </div>
-                </div>
+                  ))}
+                  <p className="text-[#F3B81F] ml-3 text-sm">
+                      {/* FIX APPLIED HERE: Casting to 'number' to satisfy ReactNode type */}
+                      {(product?.totalReviews as number)} Reveiws
+                  </p>
               </div>
-            )}
           </div>
           <span className="border-t border-dashed w-full" />
 
