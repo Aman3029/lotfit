@@ -23,14 +23,23 @@ const CategoryCard = ({ category }: Props) => {
           </p>
         </div>
 
-        <div className=" max-w-[120px] max-h-[120px]  w-full flex justify-center items-center">
-          <Image
-            className="object-center xs:mt-8  h-[120px] group-hover:scale-110 hover:transition-all duration-500"
-            height={120}
-            width={110}
-            src={category.image?.img_url}
-            alt={category.name}
-          />
+       
+        <div className="max-w-[120px] max-h-[120px] w-full flex justify-center items-center">
+          {/* 
+          // Commented out image section since ICategory has no image property
+          // <Image
+          //   className="object-center xs:mt-8 h-[120px] group-hover:scale-110 hover:transition-all duration-500"
+          //   height={120}
+          //   width={110}
+          //   src={category.image?.img_url}
+          //   alt={category.name}
+          // /> 
+          */}
+
+          {/* Placeholder for categories without image */}
+          <div className="flex justify-center items-center xs:mt-8 h-[120px] w-[110px] rounded-lg bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm">
+            No Image
+          </div>
         </div>
         <Button className="absolute -bottom-10 left-1/2 -translate-x-1/2 transform transition-all w-[140px] duration-500 group-hover:bottom-6 rounded-lg">
           <Link href={`${ROUTES.PRODUCT}?category=${category.slug}`} className="flex gap-3 items-center">
