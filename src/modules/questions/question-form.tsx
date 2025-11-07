@@ -21,22 +21,23 @@ const QuestionForm = () => {
   const { postQuestionState, setPostQuestionState } = useGlobalModalStateStore(
     (state) => state
   );
+
   const questionForm = useForm<CreateQuestionInput>({
     resolver: zodResolver(QuestionSchema),
     defaultValues: {
       question: "",
       product: "",
-      shop: "",
     },
   });
 
   const onSubmit = (values: Pick<CreateQuestionInput, "question">) => {
     createQuestion({
       product: postQuestionState?._id as string,
-      shop: postQuestionState?.shop._id as string,
       question: values.question,
+      // shop removed
     });
   };
+
   return (
     <Form {...questionForm}>
       <form
@@ -60,13 +61,13 @@ const QuestionForm = () => {
         <div className="flex justify-end gap-3">
           <Button
             disabled={isLoading}
-            variant={"outline"}
+            variant="outline"
             className="border border-primary px-6 rounded-lg"
             onClick={() => setPostQuestionState(false, null)}
           >
-            Cencel
+            Cancel
           </Button>
-          <Button disabled={isLoading} className=" px-6 rounded-lg">
+          <Button disabled={isLoading} className="px-6 rounded-lg">
             {isLoading && (
               <Icons.spinner
                 className="mr-2 h-4 w-4 animate-spin"
